@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="images/counter.png" />
+        <title>Word Counter</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header class="top-header">
+            <div class="page-lbl flex-row">
+                <a href="index.html" class="wrd-top-lbl flex-row ptr">
+                    <span class="top-lbl" id="one">W</span>
+                    <span class="top-lbl" id="two">O</span>
+                    <span class="top-lbl" id="three">R</span>
+                    <span class="top-lbl" id="four">D</span>
+                </a>
+                <p class="flex-column">
+                    <span class="counter-top-lbl">Counter</span>
+                    <span class="small page-desc">Get a breakdown of every word and character</span>
+                </p>
+            </div>
+        </header>
+        <div id="container">
+			<div class="flex-column full-w" id="options">
+				<p>
+					<span class="bold">Density: </span>
+					<span>
+						<input type="radio" class="ptr" name="density" id="char" value="char" />
+						<label for="char" class="ptr">Character</label>
+					</span>
+					<span>
+						<input type="radio" class="ptr" name="density" id="word" value="word" checked />
+						<label for="word" class="ptr">Keyword</label>
+					</span>
+				</p>
+				<p id="rdoFilterWrapper">
+					<span class="bold">Filter Out: </span>
+					<span>
+						<input type="radio" class="ptr" name="filter" id="common" value="common" checked />
+						<label for="common" class="ptr">Common Words</label>
+					</span>
+					<span>
+						<input type="radio" class="ptr" name="filter" id="none" value="none" />
+						<label for="none" class="ptr">None</label>
+					</span>
+				</p>
+			</div>
+			<main class="full-w" id="main">
+				<aside id="stat_">
+					<div id="stat_wrapper">
+						<p class="section-header stat-head full-w flex-row">
+							<span>Stats</span>
+							<span class="glyphicon glyphicon-stats"></span>
+						</p>
+						<section class="stat-group-wrapper">
+							<div class="stat-group bdr">
+								<p class="flex-row full-w stat-grp-name bdr-top" id="grp-details">
+									<span class="stat-grp-lbl ptr">Details</span>
+									<span class="glyphicon glyphicon-menu-down stat-grp-icon ptr"></span>
+								</p>
+								<ul class="full-w stat-ul">
+									<li class="li">
+										<span>Words</span>
+										<span class="badge num" id="word_c">0</span>
+									</li>
+									<li class="li">
+										<span>Characters</span>
+										<span class="badge num" id="char_c">0</span>
+									</li>
+									<li class="li">
+										<span>Paragraphs</span>
+										<span class="badge num" id="para_c">0</span>
+									</li>
+									<li class="li">
+										<span>Spaces</span>
+										<span class="badge num" id="space_c">0</span>
+									</li>
+								</ul>
+							</div>
+							<div class="stat-group bdr">
+								<p class="flex-row full-w stat-grp-name bdr-top" id="grp-keywords">
+									<span>
+										<span class="stat-grp-lbl ptr" id="density">Keywords</span>
+										<span id="freq_container">
+											<span class="active freq-rate ptr" id="one">1X</span>
+											<span class="freq-rate ptr" id="two">2X</span>
+											<span class="freq-rate ptr" id="three">3X</span>
+										</span>
+									</span>
+									<span class="glyphicon glyphicon-menu-down stat-grp-icon ptr"></span>
+								</p>
+								<ul class="full-w stat-ul" id="density_ul">
+									<li class="li">
+										<span class="italic empty">Start typing to get a list of keywords/characters.</span>
+									</li>
+								</ul>
+							</div>
+						</section>
+					</div>
+				</aside>
+				<section class="input-section">
+					<section class="flex-column">
+						<div class="section-header full-w flex-row">
+							<span class="ctrl" id="cls">
+								<span class="glyphicon glyphicon-trash medium"></span>
+								<span class="small">CLEAR</span>
+							</span>
+							<span class="ctrl" id="undo">
+								<span class="glyphicon glyphicon-circle-arrow-left medium"></span>
+								<span class="small">UNDO</span>
+							</span>
+							<span class="ctrl" id="redo">
+								<span class="glyphicon glyphicon-circle-arrow-right medium"></span>
+								<span class="small">REDO</span>
+							</span>
+						</div>
+						<div class="full-w flex-column bdr" id="input_container">
+							<span class="blur-text-top"></span>
+							<textarea contenteditable="true" rows="15" id="text-input" class="full-w bdr-top" placeholder="Type or copy and paste here..."></textarea>
+							<p class="full-w char-counter bdr-btm bold">
+								<span>Character count : </span>
+								<span id="char-count">0</span>
+							</p>
+
+						</div>
+					</section>
+					<section id="manual">
+						<p class="full-w bdr-top manual-header">How to use</p>
+						<div id="manual-content">
+							<p>WORD Counter breaks down all the characters and words present in the text.<br />
+							<span class="bold">Density: </span>You can chose to view the breakdown of the character usage by selecting the 'Character' radio button in the Density section at the top of the page, Or you can choose to view how often you use a particular word by selecting the 'Keyword' radio button.<br />
+							<span class="bold">Filter Out: </span>Selecting 'Common Words' removes any occurence of common words most of them from the top 100 most common words in English Language [<a href="https://en.wikipedia.org/wiki/Most_common_words_in_English">Wikipedia</a>] found in the text. On the other hand, selecting 'None' won't filter anything.<br /> <br />
+							WORD Counter only shows the top 10 density of words.
+							</p>
+						</div>
+					</section>
+				</section>
+			</main>
+        </div>
+        <footer>
+            <p>Bello Damilola | 2018</p>
+        </footer>
+
+        <!-- JS Scripts -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
