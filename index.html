@@ -118,8 +118,11 @@
 							</span>
 						</div>
 						<div class="full-w flex-column bdr" id="input_container">
-							<span class="blur-text-top"></span>
-							<textarea contenteditable="true" rows="15" id="text-input" class="full-w bdr-top" placeholder="Type or copy and paste here..."></textarea>
+							<div id="txtarea" class="full-w">
+								<span class="blur-text-top blur"></span>
+								<textarea contenteditable="true" rows="15" id="text-input" class="full-w bdr-top" placeholder="Type or copy and paste here..."></textarea>
+								<span class="blur-text-bottom blur"></span>
+							</div>
 							<p class="full-w char-counter bdr-btm bold">
 								<span>Character count : </span>
 								<span id="char-count">0</span>
